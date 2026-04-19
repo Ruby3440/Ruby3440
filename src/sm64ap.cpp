@@ -664,6 +664,25 @@ int SM64AP_GetStars() {
     return starsCollected;
 }
 
+bool gFreezeTrapped = false;
+s32 gFreezeTrapTimer = 0;
+
+Vec3f gFreezePos = { 0.0f, 0.0f, 0.0f };
+Vec3s gFreezeFaceAngle = { 0, 0, 0 };
+
+s32 gFreezeAction = 0;
+u32 gFreezeActionArg = 0;
+u16 gFreezeAnimFrame = 0;
+
+// If an item exists on the stack, return it, otherwise 0
+int64_t SM64AP_PopDelayedStack() {
+    if (delayed_queue.empty())
+        return 0;
+    int64_t item = delayed_queue.front();
+    delayed_queue.pop();
+    return item;
+}
+
 int SM64AP_GetRequiredStars(int idprx) {
     switch (idprx) {
         case 8: // Star Door 8
