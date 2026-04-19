@@ -177,7 +177,7 @@ void SM64AP_RecvItem(int64_t idx, bool notify) {
         sm64_have_abilities[idx - SM64AP_ABILITY_OFFSET] = true;
     } else if (idx >= SM64AP_ID_ABILITY(1) && idx <= SM64AP_ID_ABILITY(SM64AP_NUM_ABILITIES - 1)) {
         sm64_have_abilities[idx - SM64AP_ABILITY_OFFSET] = true;
-    } else if (idx >= SM64AP_ID_1_HEALTH_PIP && idx <= SM64AP_ID_RR_TRAP) {
+    } else if (idx >= SM64AP_ID_1_HEALTH_PIP && idx <= SM64AP_ID_ICE_TRAP) {
         if (notify) {
             if (idx == SM64AP_ID_RR_TRAP) {
                 gRRTrapTimer = 6 * 60 * 30;
